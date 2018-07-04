@@ -74,4 +74,38 @@ public class Utility {
 		
 	}
 
+
+
+
+
+public void leapyear(int year)
+{
+	
+	int count = 0;
+	int temp = year;
+	while (temp > 0)
+	{
+		temp = temp/10;
+		count++;
+	}
+	
+	
+		if (count == 4)
+		{
+			if ((year % 4 == 0 || year % 400 == 0) && year %100 != 0)
+			{
+				System.out.println("Yes, this is leap year");
+			}
+			else
+			{
+				System.out.println("Not a leap year");
+			}
+		}
+		else
+		{
+			System.out.println("Enter 4 digit number please");
+		}
+	}
 }
+
+
