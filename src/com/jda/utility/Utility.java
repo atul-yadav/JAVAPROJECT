@@ -46,6 +46,10 @@ public class Utility {
 		return template;
 	}
 	
+	/**
+	*flip coin funtion is drive===
+	
+	*/
 	public void flipcoin(int number)
 	{
 		int noOfHeads = 0;
