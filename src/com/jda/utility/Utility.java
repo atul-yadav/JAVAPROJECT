@@ -78,6 +78,10 @@ public class Utility {
 
 
 
+/**
+ * function to check leap year or not 
+ * @param year
+ */
 public void leapyear(int year)
 {
 	
@@ -103,9 +107,28 @@ public void leapyear(int year)
 		}
 		else
 		{
-			System.out.println("Enter 4 digit number please");
+					System.out.println("Enter 4 digit number please");
+			}
 		}
-	}
-}
+	
+	
 
+
+/**
+ * powervalue function computes the power value of given number
+ * @param number
+ */
+public void powervalue(int number)
+{
+	int res = 1;
+	int j = 2;
+	System.out.println("table of number "+ number);
+	for (int i = 0; i < number; i++)
+	{
+		res  = res *j;
+		System.out.println(res);
+	}
+	
+}
+}
 
