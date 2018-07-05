@@ -32,7 +32,7 @@ public class Utility {
 	
 	/**
 	 * function to take user input as integer
-	 * @return input  goes  to flipcoin class
+	 * @return input  goes  to Flipcoin class
 	 */
 	public int inputInteger() {
 		int  input = scanner.nextInt();
@@ -153,6 +153,32 @@ public double harmonicValue(int number)
 		System.out .println(i+"th harmonic value is  " + res);
 	}
 	return res;
+}
+
+public void primeFactors(int number)
+{
+	System.out.println("Prime factors of  number  "+number+ " "+"are  ");
+
+	for  (int i = 2;  i*i <= number; i++ )
+	{
+		
+		
+		
+		while (number % i  == 0)
+		{
+	  
+			
+			System.out.println(i + " ");
+		    
+			
+			number = number / i;
+		}
+		
+	}
+	if (number  >  1)
+	{
+		System.out.println(number);
+	}
 }
 }
 
