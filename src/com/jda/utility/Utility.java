@@ -6,6 +6,10 @@ import java.util.Scanner;
  * @author atul
  *
  */
+/**
+ * @author bridgelabz
+ *
+ */
 public class Utility {
 	Scanner scanner;
 
@@ -129,6 +133,22 @@ public void powervalue(int number)
 		System.out.println(res);
 	}
 	
+}
+
+/**
+ * harmonicValue is function for calculating nth harmonic value.
+ * @param number is nth value for which harmonic value is to be calculated
+ * @return nth harmonic value.
+ */
+public double harmonicValue(int number)
+{
+	double res = 0.0;
+	for (int i = 1; i <= number; i++)
+	{
+		res = res + (1.0/i);
+		System.out .println(i+"th harmonic value is  " + res);
+	}
+	return res;
 }
 }
 
