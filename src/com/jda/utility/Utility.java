@@ -8,6 +8,14 @@ import java.util.Scanner;
  *
  */
 
+/**
+ * @author bridgelabz
+ *
+ */
+/**
+ * @author bridgelabz
+ *
+ */
 public class Utility {
 	Scanner scanner;
 
@@ -223,6 +231,13 @@ public class Utility {
 
 	}
 	
+	
+	/**
+	 * intArray method is array to be read.
+	 * @param array is array to be read
+	 * @param m is row size
+	 * @param n is column size
+	 */
 	public void intArray(int [][] array,int m,  int n)
 	{
 	 System.out.println("enter the array elements");
@@ -236,6 +251,12 @@ public class Utility {
 	
 	}
 	
+	/**
+	 * printArray function for displaying array elements.
+	 * @param array to be display
+	 * @param m is row size
+	 * @param n is column size
+i	 */
 	public void printArray(int [][] array,int m, int n)
 	{
 		intArray(array,m,n);
@@ -252,11 +273,42 @@ public class Utility {
 	    }
 	}
 	
-	public static double getDistance(int x, int y) {
+	
+	/**
+	 * @param x is x coordinate value
+	 * @param y is y coordinate value
+	 * @return distance between (x,y) and (0,0)
+	 */
+	public double getDistance(int x, int y) {
 		double distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 		return distance;
 	}
 	
 	
+	/**
+	 * coupon function returns total random number needed to have all distinct numbers
+	 * @param n is number of distinct coupon given
+	 */
+	public void coupon(int n)
+	{
 	
+   int count = 0;                        
+   int unique = 0;                     
+
+  int[] checking = new  int[n];
+   while (unique <  n){
+       int var= (int) (Math.random() * n);   
+       //System.out.print(var+" ");
+       count++;                                 
+       if (checking[var] != 1) {
+           unique++;
+           checking[var] = 1;
+       }
+   }
+   System.out.println("tota random number needed");
+   System.out.println(count);
 }
+}
+	
+	
+
