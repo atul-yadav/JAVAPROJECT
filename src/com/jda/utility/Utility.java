@@ -8,14 +8,7 @@ import java.util.Scanner;
  *
  */
 
-/**
- * @author bridgelabz
- *
- */
-/**
- * @author bridgelabz
- *
- */
+
 public class Utility {
 	Scanner scanner;
 
