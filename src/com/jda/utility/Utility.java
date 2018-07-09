@@ -1,6 +1,8 @@
 package com.jda.utility;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -26,7 +28,7 @@ public class Utility {
 	 * @return input input return to ReplaceString class
 	 */
 	public String inputString() {
-		return scanner.next();
+		return scanner.nextLine();
 
 	}
 
@@ -403,8 +405,152 @@ System.out.println("wind chill  =  "+ w);
 }
 
 
+static public boolean areAnagram(char[] str1, char[] str2)
+{
+    int n1 = str1.length;
+    int n2 = str2.length;
+    if (n1 != n2) {
+        return false;
+    }
+    Arrays.sort(str1);
+    Arrays.sort(str2);
+    
+    
+    for (int i = 0; i < n1;  i++) {
+        if (str1[i] != str2[i]) {
+            return false;
+        }
+    }
 
+    return true;
 }
+
+public static boolean isPrime(int n)
+{
+    
+    if (n <= 1)
+        return false;
+  
+   for (int i = 2; i *i < n; i++)
+        if (n % i == 0) {
+            return false;
+        }
+  
+    return true;
+}
+
+public static boolean isPalindrome(char s[])
+{
+	int l = s.length;
+	for (int i = 0; i < l-1; i++)
+	{
+		if (s[i] != s[l-i-1])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+public static boolean primePalindrome(int n)
+{
+	if (isPrime(n))
+	{
+	String s1 = Integer.toString(n);
+	char[] str1 = s1.toCharArray();
+	if (isPalindrome(str1))
+	{
+		return true;
+	}
+	return false;
+	
+}
+	return false;
+}
+
+public static void primeAnagram()
+{
+	ArrayList<String>  list = new ArrayList<>();
+	for (int i  = 0; i < 1000; i++)
+	{
+	if (isPrime(i))
+	{
+		list.add(Integer.toString(i));
+	}
+	}
+	//char[] chars = list.toString().toCharArray();
+	for (int i = 0; i < list.size();  i++)
+	{
+		for (int j = i + 1; j < list.size(); j++)
+	{
+			boolean b =  (areAnagram((list.get(i)).toCharArray(), (list.get(j)).toCharArray()));
+			if (b)
+			{
+				System.out.println("these numbers are anagrams");
+				System.out .println(list.get(i) + " " +list. get(j));
+			}
+	}
+		
+	}
+}
+	
+	public static int binarySearch(int arr[], int l, int r, int x)
+   {
+       if (r>=l)
+       {
+           int mid = l + (r - l)/2;
+           if (arr[mid] == x)
+              return mid;
+             if (arr[mid] > x)
+              return binarySearch(arr, l, mid-1, x);
+
+          
+           return binarySearch(arr, mid+1, r, x);
+       }
+       return -1;
+   }
+	
+	
+	public static int binarySearch(String[] a, String x) {
+      int low = 0;
+      int high = a.length - 1;
+      int mid;
+
+      while (low <= high) {
+          mid = (low + high) / 2;
+
+          if (a[mid].compareTo(x) < 0) {
+              low = mid + 1;
+          } 
+          else if (a[mid].compareTo(x) > 0) {
+              high = mid - 1;
+          } 
+          else {
+              return mid;
+          }
+      }
+
+      return -1;
+  }
+
+	
+	
+	
+	
+}
+	
+	
+
+
+	
+	
+
+
+
+
+
+
+
 
 
 
