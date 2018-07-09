@@ -3,11 +3,12 @@ package com.jda.utility;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+
+
 /**
  * @author atul
  *
  */
-
 
 public class Utility {
 	Scanner scanner;
@@ -36,6 +37,11 @@ public class Utility {
 	 */
 	public int inputInteger() {
 		int input = scanner.nextInt();
+		return input;
+	}
+	
+	public double inputDouble() {
+		double input = scanner.nextDouble();
 		return input;
 	}
 
@@ -231,6 +237,7 @@ public class Utility {
 	 * @param m is row size
 	 * @param n is column size
 	 */
+	
 	public void intArray(int [][] array,int m,  int n)
 	{
 	 System.out.println("enter the array elements");
@@ -272,7 +279,7 @@ i	 */
 	 * @param y is y coordinate value
 	 * @return distance between (x,y) and (0,0)
 	 */
-	public double getDistance(int x, int y) {
+	public static double getDistance(int x, int y) {
 		double distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 		return distance;
 	}
@@ -282,7 +289,7 @@ i	 */
 	 * coupon function returns total random number needed to have all distinct numbers
 	 * @param n is number of distinct coupon given
 	 */
-	public void coupon(int n)
+	public static void coupon(int n)
 	{
 	
    int count = 0;                        
@@ -298,10 +305,108 @@ i	 */
            checking[var] = 1;
        }
    }
-   System.out.println("tota random number needed");
+   System.out.println("total random number needed");
    System.out.println(count);
 }
+
+	
+	
+/**
+ * function stopwatch prints  elapsed time 
+ * @param start is starting time of stopwatch
+ */
+public void stopwatch(long start)
+{
+start = (System.currentTimeMillis());
+System.out.println("Start  Time is  = " + start);
+for (int i = 0 ; i <  120000; i++)
+{
+	System.out.print(" ");
 }
+long current= (System.currentTimeMillis());
+	System.out.println("End Time is  = " + current);
+	System.out.println ("total elapsed time  =  " +( current-start));
 	
+}
+
+
+/**
+ * quadratic return the roots of given equation.
+ * @param a is coefficient of X^2
+ * @param b is coefficient of X
+ * @param c is constant
+ */
+public void  quadratic(double a, double b, double c)
+{
+	double d = b*b - 4*a*c;
+	double root1 = (-b +Math.sqrt(d))/2*a;
+	double root2 = (-b - Math.sqrt(d))/2*a;
 	
+	if (d  < 0)
+	{
+		System.out.println("roots are imaginery");
+	}
+	else
+	{
+	
+	System.out.println("root1 =  "+ root1);
+	System.out.println("root2 =  "+ root2);
+	}
+}
+
+/**
+ * Swap Characters at position
+ * @param a string value
+ * @param i position 1
+ * @param j position 2
+ * @return swapped string
+ */
+public String swap(String a, int i, int j)
+{
+    char temp;
+    char[] charArray = a.toCharArray();
+    temp = charArray[i] ;
+    charArray[i] = charArray[j];
+    charArray[j] = temp;
+    return String.valueOf(charArray);
+}
+/*
+* permutation function
+* @param str string to calculate permutation for
+* @param l starting index
+* @param r end index
+*/
+public void permute(String str, int l, int r)
+{
+    if (l == r)
+        System.out.println(str);
+    else
+    {
+        for (int i = l; i <= r; i++)
+        {
+            str = swap(str,l,i);
+            permute(str, l+1, r);
+            str = swap(str,l,i);
+        }
+    }
+}
+
+/**
+ * windChill function prints wind chill
+ * @param t is temperature
+ * @param v is wind speed
+ */
+public void windChill(double t, double v)
+{
+double w = 35.74 + 0.6215*t + (0.4275*t - 35.75) * Math.pow(v, 0.16);
+System.out.println("wind chill  =  "+ w);
+}
+
+
+
+}
+
+
+
+
 

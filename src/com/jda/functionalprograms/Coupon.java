@@ -9,7 +9,7 @@ public class Coupon {
 		Utility utility =  new Utility();
 		System.out.println("Enter the number of coupons");
 		int number = utility.inputInteger();
-		utility.coupon(number);
+		Utility.coupon(number);
 		
 		
 
