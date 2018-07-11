@@ -1,12 +1,12 @@
 package com.jda.functionalprograms;
 
-import com.jda.utility.Utility;
+import com.jda.utility.Utility2;
 
 public class Harmomic {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Utility utility =  new Utility();
+		Utility2 utility =  new Utility2();
 		while (true) {
 		System.out.println("Enter the hormonic  value");
 		int number = utility.inputInteger();

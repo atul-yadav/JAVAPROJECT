@@ -1,6 +1,6 @@
 package com.jda.functionalprograms;
 
-import com.jda.utility.Utility;
+import com.jda.utility.Utility2;
 
 public class sum {
 
@@ -8,7 +8,7 @@ public class sum {
 		// TODO Auto-generated method stub
 		int a;
 		int b;
-		Utility utility =  new Utility();
+		Utility2 utility =  new Utility2();
 		a = utility.inputInteger();
 		b = utility.inputInteger();
 		System.out.println(a);

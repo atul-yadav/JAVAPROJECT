@@ -1,6 +1,6 @@
 package com.jda.algorithms;
 
-import com.jda.utility.Utility;
+import com.jda.utility.Utility2;
 
 public class PrimeChecker {
 	public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class PrimeChecker {
 		//Utility utility =  new Utility();
 		for (int i = 0; i <  1000; i++)
 		{
-		 if (Utility.isPrime(i))
+		 if (Utility2.isPrime(i))
 		 {
 			 System.out.print(" "+ i);
 		 }

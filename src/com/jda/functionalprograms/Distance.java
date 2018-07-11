@@ -1,6 +1,6 @@
 package com.jda.functionalprograms;
 
-import com.jda.utility.Utility;
+import com.jda.utility.Utility2;
 
 public class Distance {
 
@@ -9,7 +9,7 @@ public class Distance {
 		//Utility utility =  new Utility();
 		int x = Integer.parseInt(args[0]);
 		int y = Integer.parseInt(args[1]);
-		System.out.println(Utility.getDistance(x, y));
+		System.out.println(Utility2.getDistance(x, y));
 		
 
 	}

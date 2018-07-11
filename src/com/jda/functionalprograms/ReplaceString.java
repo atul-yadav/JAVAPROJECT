@@ -10,12 +10,12 @@
 
 package com.jda.functionalprograms;
 
-import com.jda.utility.Utility;
+import com.jda.utility.Utility2;
 
 public class ReplaceString {
 	public static void main(String[] args) {
 
-		Utility utility = new Utility();
+		Utility2 utility = new Utility2();
        String input= "“Hello <<UserName>>, How are you?";
        System.out.println("Enter UserName");
        String UserName = utility.inputString();

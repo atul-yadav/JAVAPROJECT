@@ -1,12 +1,12 @@
 package com.jda.algorithms;
 
-import com.jda.utility.Utility;
+import com.jda.utility.Utility2;
 
 public class Anagrams {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Utility utility =  new Utility();
+		Utility2 utility =  new Utility2();
 		System.out.println("Enter the string1");
 		String s1 = utility.inputString();
 		System.out.println("Enter the string2");
@@ -21,7 +21,7 @@ public class Anagrams {
 		char[] str1 = s1.toCharArray();
 		char[] str2 = s2.toCharArray();
 		
-      if (Utility.areAnagram(str1, str2))
+      if (Utility2.areAnagram(str1, str2))
       {
           System.out.println("The two strings are anagram");
       }

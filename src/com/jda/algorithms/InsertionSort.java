@@ -1,0 +1,31 @@
+package com.jda.algorithms;
+
+import java.util.Scanner;
+
+import com.jda.utility.Utility2;
+
+public class InsertionSort {
+
+	//private static Scanner //s;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Utility2  utility = new Utility2();
+	
+		System.out.println("enter the size of array");
+		int n = utility.inputInteger();
+		//s = new  Scanner(System.in);
+		Integer arr [] = new Integer [n];
+		System.out.println("enter the  elements");
+		int i = 0;
+		for ( i = 0; i < n; i++)
+		{
+			arr[i] = utility.inputInteger();
+		}
+		Utility2.insertionSort(arr);
+		
+		
+
+	}
+
+}

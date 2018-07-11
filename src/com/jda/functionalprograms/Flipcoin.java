@@ -1,6 +1,6 @@
 package com.jda.functionalprograms;
 
-import com.jda.utility.Utility;
+import com.jda.utility.Utility2;
 
 /**
  * @author atul
@@ -41,7 +41,7 @@ public class Flipcoin {
 	
 	public static void main(String[] args) {
 		
-		Utility utility =  new Utility();
+		Utility2 utility =  new Utility2();
 		System.out.println("Enter the number of times the coin to flipped");
 		int number = utility.inputInteger();
 		//Flipcoin flip = new  Flipcoin();
