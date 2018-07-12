@@ -3,6 +3,7 @@ package com.jda.utility;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -10,10 +11,7 @@ import java.util.Scanner;
  *
  */
 
-/**
- * @author bridgelabz
- *
- */
+
 public class Utility2 {
 	Scanner scanner;
 
@@ -620,6 +618,11 @@ public class Utility2 {
 	}
 	 
 	
+	/**
+	 * @param lo is lower index
+	 * @param hi is higher index
+	 * @return the mid element
+	 */
 	public static int binarySearch1(int lo, int hi)
 	{
 		scanner2 = new Scanner(System.in);
@@ -642,9 +645,16 @@ public class Utility2 {
 	        }
 	    }
 	
+/**
+ * @param a is array of generic data type
+ * @param p is intial index
+ * @param mid is for mid index
+ * @param q is last index
+ */
 public static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q) {
 
-		Object[] tmp = new Object[q-p+1]; 
+		//T[] tmp = new  T[q-p+1]; 
+	T[] tmp = (T[]) new Object[q-p+1];
 		int i = p;
 		int j = mid+1;
 		int k = 0;
@@ -663,7 +673,7 @@ public static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q
 			tmp[k++] = a[j++];
 		}
 		for (k = 0; k < tmp.length; k++) {
-		    a[k+p] =(T)(tmp[k]); 
+		    a[k+p] = (tmp[k]); 
 		}
 	    }
 	 
@@ -674,9 +684,131 @@ public static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q
 		mergeSort(a, mid+1, j);
 		merge(a, i, mid, j);
 	    }
-
+	
+	/**
+	 * vending Machine is function for calculating minimum number of change
+	 * @param value is money to which we have to find change
+	 */
+	public void vendingMachine (int value)
+	{
+		int notes[] = {1, 2, 5, 10, 20, 50, 100, 500, 1000};
+		int count = 0 ;
+		List <Integer>list = new ArrayList<Integer>();
+		for (int i =  notes.length-1;  i  >= 0;  i--)
+		{
+			
+			while (value >= notes[i])
+			{
+				value = value - notes[i];
+				list.add(notes[i]);
+				count++;
+			}
+		}
+		System.out.println("minimum no of notes  = " + count);
+		System.out.println("denomintion values are  ");
+		for (int i = 0; i < list.size();  i++)
+		{
+			System.out.println(list.get(i));
+		}
+		
+		
+	}
+	
+	/**
+	 * @param d is day
+	 * @param m is month
+	 * @param y is year
+	 * @return is returning day
+	 */
+	public static int dayOfWeek(int d, int m, int y)
+	{
+	
+	int y0 = y - (14 - m) / 12;
+   int x = y0 + y0/4 - y0/100 + y0/400;
+   int m0 = m + 12 * ((14 - m) / 12) - 2;
+   int d0 = (d + x +( (31*m0)/12)) % 7;
+	return d0;
 	 
 		
 	}
+	
+	/**
+	 * forenhiteToCelsius changes forenhite to celsius
+	 * @param temperature
+	 * @return the celsius value of given forenhite value
+	 */
+	public double forenhiteToCelsius(double temperature ) {
+			return ((double)temperature - 32) * 5 / 9;
+		}
+	
+	/**
+	 * @param temperature
+	 * @return celsius value of given forenhite
+	 */
+	public double celsiusToForenhite(double temperature) {
+		
+			return  (((double)temperature * 9 / 5) + 32);
+		}
+	
+	public static double monthlyPayment(double P, double Y, double R) {
+		double r = R / (12 * 100);
+		double n = - 1* 12 * Y;
+		double payment = (P * r) / (1 - Math.pow((1 + r) , n));
+		return payment;
+	}
+	
+	
+
+/**
+ * @param t
+ * @return square root of given  number
+ */
+public static double squareRoot(double t) {
+	double c = t;
+	double epsilon = Math.pow(2.71828 , -15);
+		
+	while(Math.abs(t - (c / t)) > (epsilon * t)) {
+			t = ((c / t) + t) / 2;
+			//return t;
+		}
+		return t;
+
+	}
+
+/**
+ * integerTobinary number function converts integer to binary
+ * @param number
+ * @return string of inary number
+ */
+public static String integerToBinary(int number) {
+	String binary = " ";
+	
+	while (number  >  0)
+	{
+		int remainder = number % 2;
+		
+		binary =  binary + String.valueOf(remainder);
+		number = number / 2;
+	}
+	binary = new StringBuffer(binary).reverse().toString();
+	
+	return binary;
+	
+}
+}
+
+	
+
+
+	
+	
+
+	
+	
+	
+
+	
+	
+
 
 
