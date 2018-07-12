@@ -10,6 +10,10 @@ import java.util.Scanner;
  *
  */
 
+/**
+ * @author bridgelabz
+ *
+ */
 public class Utility2 {
 	Scanner scanner;
 
@@ -26,7 +30,7 @@ public class Utility2 {
 	 * @return input input return to ReplaceString class
 	 */
 	public String inputString() {
-		return scanner.nextLine();
+		return scanner.next();
 
 	}
 
@@ -391,6 +395,7 @@ public class Utility2 {
 	 * @param r end index
 	 */
 	int count = 0;
+	private static Scanner scanner2;
 
 	public void permute(String str, int l, int r) {
 
@@ -514,6 +519,11 @@ public class Utility2 {
 	 * 
 	 * return -1; }
 	 */
+	/**
+	 * insertionSort function for sorting elements.
+	 * @param elems is array which contains elements
+	 * @return  arrray of sorted elements
+	 */
 	public static <T extends Comparable<T>> T[] insertionSort(T[] elems) {
 		int size = elems.length;
 
@@ -526,11 +536,14 @@ public class Utility2 {
 				}
 			}
 		}
-		printarr(elems);
+		//printarr(elems);
 		return elems;
 
 	}
 
+	/**
+	 * @param arr is array of elements
+	 */
 	public static <T extends Comparable<T>> void bubbleSort(T[] arr) {
 
 		T temp;
@@ -559,6 +572,14 @@ public class Utility2 {
 		}
 	}
 
+	/**
+	 * binarySearch function is for searching element
+	 * @param arr is array which  contains elements
+	 * @param value is to be searched
+	 * @param lo lower index 
+	 * @param hi higher index
+	 * @return index if found otherwise return -1
+	 */
 	public static <T extends Comparable<T>> int binarySearch(T[] arr, T value, int lo, int hi) {
 		if (lo < hi) {
 			int mid = (lo + hi) / 2;
@@ -576,11 +597,86 @@ public class Utility2 {
 		}
 		return -1;
 	}
+	
 
+	/**
+	 * prinarr function prints the array elements.
+	 * @param arr is array of elements of any data type
+	 */
 	public static <T> void printarr(T[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
 	}
+	/**
+	 * printString function prints the string elements.
+	 * @param arr is array of elements of any data type
+	 */
+	public static <T> void printString(T[] arr) {
 
-}
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+	 
+	
+	public static int binarySearch1(int lo, int hi)
+	{
+		scanner2 = new Scanner(System.in);
+			
+	        if ((hi - lo) == 1) 
+	        {
+	      	  return lo;
+	        }
+	        int mid = (lo + hi)/2;
+	        System.out.println("numer is less than   "+ mid);
+	        char c = scanner2.next().charAt(0);
+	        
+	        if (c == 't')
+	        {
+	      	  return binarySearch1(lo, mid);
+	        }  
+	        else        
+	        {
+	      	  return binarySearch1(mid, hi);
+	        }
+	    }
+	
+public static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q) {
+
+		Object[] tmp = new Object[q-p+1]; 
+		int i = p;
+		int j = mid+1;
+		int k = 0;
+		while (i <= mid && j <= q) {
+		    if (a[i].compareTo(a[j])<=0)
+			tmp[k] = a[i++];
+		    else
+			tmp[k] = a[j++];
+		    k++;
+		}
+		if (i <= mid && j > q) {
+		    while (i <= mid) 
+			tmp[k++] = a[i++];
+		} else {
+		    while (j <= q)
+			tmp[k++] = a[j++];
+		}
+		for (k = 0; k < tmp.length; k++) {
+		    a[k+p] =(T)(tmp[k]); 
+		}
+	    }
+	 
+	public static <T extends Comparable<T>> void mergeSort (T[] a, int i, int j) {
+		if (j-i < 1) return;
+		int mid = (i+j)/2;
+		mergeSort(a, i, mid);
+		mergeSort(a, mid+1, j);
+		merge(a, i, mid, j);
+	    }
+
+	 
+		
+	}
+
+
