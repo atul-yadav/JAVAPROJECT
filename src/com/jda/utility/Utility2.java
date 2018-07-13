@@ -807,6 +807,15 @@ public  int swapNibbles(int x)
 	String binary  = integerToBinary(number);
 	System.out.println("swapped nibble");
 	System.out.println(binary);
+	double number1 = Math.log(number)/Math.log(2.0);
+	if ((int)number1 == number1 )
+	{
+		System.out.println("yes number is power of 2");
+	}
+	else
+	{
+		System.out.println("no number is not power of 2");
+	}
 	
     return  number;
 }
