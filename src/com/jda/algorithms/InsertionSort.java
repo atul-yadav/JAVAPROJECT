@@ -1,7 +1,5 @@
 package com.jda.algorithms;
 
-import java.util.Scanner;
-
 import com.jda.utility.Utility2;
 
 public class InsertionSort {

@@ -760,7 +760,8 @@ public static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q
 	
 
 /**
- * @param t
+*squareRoot is method for finding square root 
+ * @param t is number whose square root has to be found
  * @return square root of given  number
  */
 public static double squareRoot(double t) {
@@ -795,6 +796,22 @@ public static String integerToBinary(int number) {
 	return binary;
 	
 }
+
+/**
+ * @param x 
+ * @return the integer value of swapped binary numbers
+ */
+public  int swapNibbles(int x)
+{
+	int number = ((x & 0x0F) << 4 | (x & 0xF0) >> 4);
+	String binary  = integerToBinary(number);
+	System.out.println("swapped nibble");
+	System.out.println(binary);
+	
+    return  number;
+}
+
+
 }
 
 	
