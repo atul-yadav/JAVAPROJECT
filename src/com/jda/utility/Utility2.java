@@ -1,10 +1,16 @@
 package com.jda.utility;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+
+import com.jda.datastructureprograms.ListNode;
 
 /**
  * @author atul
@@ -654,7 +660,7 @@ public class Utility2 {
 public static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q) {
 
 		//T[] tmp = new  T[q-p+1]; 
-	T[] tmp = (T[]) new Object[q-p+1];
+	 Object tmp[] =  new Object[q-p+1];
 		int i = p;
 		int j = mid+1;
 		int k = 0;
@@ -673,7 +679,7 @@ public static <T extends Comparable<T>> void  merge(T[] a, int p, int mid, int q
 			tmp[k++] = a[j++];
 		}
 		for (k = 0; k < tmp.length; k++) {
-		    a[k+p] = (tmp[k]); 
+		    a[k+p] = (T) (tmp[k]); 
 		}
 	    }
 	 
@@ -779,7 +785,7 @@ public static double squareRoot(double t) {
 /**
  * integerTobinary number function converts integer to binary
  * @param number
- * @return string of inary number
+ * @return string of binary number
  */
 public static String integerToBinary(int number) {
 	String binary = " ";
@@ -819,6 +825,112 @@ public  int swapNibbles(int x)
 	
     return  number;
 }
+
+
+public ListNode insert(ListNode node1,String str)
+{
+   ListNode node2=node1;
+   ListNode newNode=new ListNode();
+   newNode.data=str;
+   newNode.nextNode=null;
+   if(node1==null)
+   {
+     return newNode;
+   }
+   else{
+     while(node1.nextNode!=null)
+     {
+       node1=node1.nextNode;
+     }
+     node1.nextNode=newNode;
+   }
+   return node2;
+}
+
+public ListNode search(ListNode node,String word)
+{
+     ListNode temp=node;
+     while(node.nextNode!=null){
+       if(word.compareTo((node.nextNode).data)==0)
+       {
+         node.nextNode=(node.nextNode).nextNode;
+         System.out.println("Word is Found");
+         
+         return temp;
+       }
+       node=node.nextNode;
+     }
+     System.out.println("Word is not Found");
+     temp = insert(temp,word);
+     return temp;
+}
+
+public void writeToFile(String word)
+{
+	try{
+		//File file=new File("C:\\Users\\1023340\\Documents\\JAVAPROJECT\\src\\com\\jda\\datastructureprograms\\numbers.txt");
+		File file=new File("C:\\Users\\1023340\\Documents\\JAVAPROJECT\\src\\com\\jda\\datastructureprograms\\word.txt");
+      	file.createNewFile();
+      	FileWriter fileWriter=new FileWriter(file);
+      	System.out.println("displaying file after modification");
+      	System.out.println(word);
+        fileWriter.write(word);
+        fileWriter.close();
+	}
+	catch(IOException e){
+	}
+}
+
+public ListNode readFile(ListNode head)
+{
+	try{
+           //	FileInputStream fileInputStream = new FileInputStream("C:\\Users\\1023340\\Documents\\JAVAPROJECT\\src\\com\\jda\\datastructureprograms\\numbers.txt");
+		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\1023340\\Documents\\JAVAPROJECT\\src\\com\\jda\\datastructureprograms\\word.txt");
+           	char ch;
+           	String word3="";
+           	while (fileInputStream.available() > 0)
+           	{
+				ch = (char) fileInputStream.read();
+             	word3=word3+ch;
+           	}
+           	System.out.println("printing file data which is already there");
+           	System.out.println(word3);
+           	String[] wordsArray=word3.split(" ");
+			for(int i =0; i < wordsArray.length ; i++)
+			{
+           		head = insert(head,wordsArray[i]);
+			}
+			fileInputStream.close();
+		}
+     	
+	catch(IOException e){
+		}
+	catch(NullPointerException n)
+	{
+		System.out.println(n);
+	}
+		return head;
+		
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
