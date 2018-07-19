@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import com.jda.datastructureprograms.ListNode;
+
 
 /**
  * @author atul
@@ -827,43 +827,7 @@ public  int swapNibbles(int x)
 }
 
 
-public ListNode insert(ListNode node1,String str)
-{
-   ListNode node2=node1;
-   ListNode newNode=new ListNode();
-   newNode.data=str;
-   newNode.nextNode=null;
-   if(node1==null)
-   {
-     return newNode;
-   }
-   else{
-     while(node1.nextNode!=null)
-     {
-       node1=node1.nextNode;
-     }
-     node1.nextNode=newNode;
-   }
-   return node2;
-}
 
-public ListNode search(ListNode node,String word)
-{
-     ListNode temp=node;
-     while(node.nextNode!=null){
-       if(word.compareTo((node.nextNode).data)==0)
-       {
-         node.nextNode=(node.nextNode).nextNode;
-         System.out.println("Word is Found");
-         
-         return temp;
-       }
-       node=node.nextNode;
-     }
-     System.out.println("Word is not Found");
-     temp = insert(temp,word);
-     return temp;
-}
 
 public void writeToFile(String word)
 {
@@ -881,53 +845,20 @@ public void writeToFile(String word)
 	}
 }
 
-public ListNode readFile(ListNode head)
-{
-	try{
-           //	FileInputStream fileInputStream = new FileInputStream("C:\\Users\\1023340\\Documents\\JAVAPROJECT\\src\\com\\jda\\datastructureprograms\\numbers.txt");
-		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\1023340\\Documents\\JAVAPROJECT\\src\\com\\jda\\datastructureprograms\\word.txt");
-           	char ch;
-           	String word3="";
-           	while (fileInputStream.available() > 0)
-           	{
-				ch = (char) fileInputStream.read();
-             	word3=word3+ch;
-           	}
-           	System.out.println("printing file data which is already there");
-           	System.out.println(word3);
-           	String[] wordsArray=word3.split(" ");
-			for(int i =0; i < wordsArray.length ; i++)
-			{
-           		head = insert(head,wordsArray[i]);
-			}
-			fileInputStream.close();
-		}
-     	
-	catch(IOException e){
-		}
-	catch(NullPointerException n)
-	{
-		System.out.println(n);
+public int noOfBst(int number) {
+	int Sum = 0;
+	if(number == 0 || number == 1) {
+		return 1;
+	} else if(number == 2) {
+		return 2;
+	} else {
+		for(int i = 0; i < number; i++) {
+			 Sum = Sum + noOfBst(i) * noOfBst(number - i - 1);
+		}		
+		return Sum;
 	}
-		return head;
-		
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+}
 
 
 
