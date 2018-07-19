@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.jda.utility.List;
 import com.jda.utility.Utility2;
 
 public class UnOrderedList1
@@ -32,7 +33,7 @@ public class UnOrderedList1
 				System.out.println(strings);
 				for(String s: strings) 
 				{
-					myLinkedList.add(s);
+					myLinkedList.addEnd(s);
 				}
 			}			
 		} 
@@ -63,7 +64,7 @@ public class UnOrderedList1
 		if((pos = myLinkedList.index(search)) == -1)
 		{
 			System.out.println("word not found");
-			myLinkedList.add(search);
+			myLinkedList.addEnd(search);
 		}
 		else
 		{
