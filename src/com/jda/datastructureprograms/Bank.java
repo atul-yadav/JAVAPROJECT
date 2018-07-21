@@ -13,12 +13,12 @@ public class Bank {
 		int choice = 0;
 	
 		while(true) {
-			System.out.println("1.Add person to queue "
-					+ "2.Perform transaction "
-					+ "3. Get status of queue "
-					+ "4. Exit");
+			System.out.println("1.Add person to queue ");
+			System.out.println("2.Perform transaction ");
+			System.out.println( "3. Get status of queue ");
+			System.out.println("4. Exit");
 			choice = utility.inputInteger();
-			if(choice>0 && choice<5) {
+			
 				switch(choice) {
 				case 1:
 					transact.addPerson(queue);
@@ -30,16 +30,14 @@ public class Bank {
 					transact.getStatus(queue);
 					continue;
 				case 4:
-					return;
+					System.exit(0);
 				}
 			}
-			else {
-				System.out.println("Invalid input. Enter again");
-				choice = utility.inputInteger();
+			
 			}
-		}
+		
 		
 		
 	}
 
-}
+

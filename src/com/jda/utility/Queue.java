@@ -1,4 +1,7 @@
 package com.jda.utility;
+import com.jda.utility.Node;
+
+
 public class Queue<T> {
 	Node front = null;
 	Node tail = null;
@@ -11,6 +14,7 @@ public class Queue<T> {
 			next=null;
 			}	
 	}
+	
 	
 	public void enQueue(T value) {
 		Node newNode = new Node(value);
@@ -49,9 +53,9 @@ public class Queue<T> {
 			return;
 		}
 		Node temp = front;
-		System.out.print("Front->");
+		//System.out.print(" ");
 		while(temp!=null) {
-			System.out.print(temp.data + " -> ");
+			System.out.print(temp.data + "  ");
 			temp = temp.next;
 		}
 		System.out.print("End\n");

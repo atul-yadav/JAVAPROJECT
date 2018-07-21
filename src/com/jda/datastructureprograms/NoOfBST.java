@@ -12,6 +12,7 @@ public class NoOfBST {
 		int number = utility.inputInteger();
 		System.out.println("Number of Bst = "+ utility.noOfBst(number));
 
+
 	}
 
 }

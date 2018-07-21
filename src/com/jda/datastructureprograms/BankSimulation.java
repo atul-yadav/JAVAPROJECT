@@ -5,7 +5,7 @@ import com.jda.utility.Utility2;
 
 public class BankSimulation {
 
-	static Integer CASH_BALANCE = 1000;
+	static Integer CASH_BALANCE = 15000;
 	Utility2 utility = new Utility2();
 	
 	public void addPerson(Queue<Integer> queue) {
@@ -47,7 +47,7 @@ public class BankSimulation {
 	}
 
 	public void performTransaction(Queue<Integer> queue) {
-		System.out.println("Performing transaction...");
+		System.out.println("Performing transaction");
 		if(queue.isEmpty()) {
 			System.out.println("No request to process");
 			return;
@@ -55,8 +55,7 @@ public class BankSimulation {
 		int amount = queue.deQueue();
 		int check = CASH_BALANCE + amount;
 		if(check<0) {
-			System.out.println("Insufficient balance."
-					+ " Request rejected.");
+			System.out.println("Insufficient balance.");
 			return;
 		}
 		else {

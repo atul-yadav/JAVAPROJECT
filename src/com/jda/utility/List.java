@@ -64,18 +64,18 @@ public class List<T extends Comparable<? super T>> {
 		Node temp = head;
 		Node prev = null;
 		T tempData = (T) temp.data;
-		//if object is found at head
+		
 		if(temp!=null && (tempData).compareTo(search)==0) {
 			head = temp.next;
 			return;
 		}
-		//search till object is found
+		
 		while(temp!=null && (tempData).compareTo(search)!=0) {
 			prev = temp;
 			temp = temp.next;
 			tempData = (T)temp.data;
 		}
-		//reached end and object not found
+		
 		if(temp==null) {
 			return;
 		}

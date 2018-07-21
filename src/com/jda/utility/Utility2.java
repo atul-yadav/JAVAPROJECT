@@ -1,7 +1,10 @@
 package com.jda.utility;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -68,7 +71,7 @@ public class Utility2 {
 	}
 
 	/**
-	 * flip coin funtion is drive===
+	 * flip coin funtion
 	 * 
 	 */
 	public void flipcoin(int number) {
@@ -99,7 +102,7 @@ public class Utility2 {
 	 * 
 	 * @param year
 	 */
-	public void leapyear(int year) {
+	public boolean leapyear(int year) {
 
 		int count = 0;
 		int temp = year;
@@ -110,13 +113,16 @@ public class Utility2 {
 
 		if (count == 4) {
 			if ((year % 4 == 0 || year % 400 == 0) && year % 100 != 0) {
-				System.out.println("Yes, this is leap year");
+				//System.out.println("Yes, this is leap year");
+				return true;
 			} else {
-				System.out.println("Not a leap year");
+				//System.out.println("Not a leap year");
+				return false;
 			}
 		} else {
-			System.out.println("Enter 4 digit number please");
+			//System.out.println("Enter 4 digit number please");
 		}
+		return false;
 	}
 
 	/**
@@ -453,7 +459,7 @@ public class Utility2 {
 		if (n <= 1)
 			return false;
 
-		for (int i = 2; i * i < n; i++)
+		for (int i = 2; i*i  <=  n; i++)
 			if (n % i == 0) {
 				return false;
 			}
@@ -861,10 +867,81 @@ public int noOfBst(int number) {
 }
 
 
-
-
-
+public String[] readFileForInteger(String fileLocation) {
+	BufferedReader reader = null;
+	String line = "";
+	try {
+		reader = new BufferedReader(new FileReader(fileLocation));
+		while((line=reader.readLine()) != null){
+			String[] words = line.split(" ");
+			return words;
+		}
+	}
+	catch(FileNotFoundException e) {
+		e.printStackTrace();
+	}catch (IOException e) {
+		e.printStackTrace();
+	}
+	finally {
+		if(reader!=null) {
+			try {
+				reader.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+	return null;
 }
+public String[] readsFileForSortedIntegers(String fileLocation) {
+	BufferedReader reader = null;
+	String line = "";
+	try {
+		reader = new BufferedReader(new FileReader(fileLocation));
+		while((line=reader.readLine()) != null){
+			String[] words = line.split(" ");
+			Arrays.sort(words);
+			reader.close();
+			return words;
+		}
+	}
+	catch(FileNotFoundException e) {
+		e.printStackTrace();
+	}catch (IOException e) {
+		e.printStackTrace();
+	}
+	
+	return null;
+}
+
+public String[] readFileForIntegers(String fileLocation) {
+	BufferedReader reader = null;
+	String line = "";
+	try {
+		reader = new BufferedReader(new FileReader(fileLocation));
+		while((line=reader.readLine()) != null){
+			String[] words = line.split(" ");
+			reader.close();
+			return words;
+		}
+	}
+	catch(FileNotFoundException e) {
+		e.printStackTrace();
+	}catch (IOException e) {
+		e.printStackTrace();
+	}
+	
+	return null;
+}
+
+
+	
+}
+
+
+
+
+
 
 	
 
