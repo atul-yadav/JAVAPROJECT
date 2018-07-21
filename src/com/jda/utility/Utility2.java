@@ -453,6 +453,32 @@ public class Utility2 {
 
 		return true;
 	}
+	
+	
+
+	public boolean areAnagrams(String string1, String string2) {
+		string1 = string1.replaceAll("\\s+", "");
+		string1 = string1.toLowerCase();
+		string2 = string2.replaceAll("\\s+", "");
+		string2 = string2.toLowerCase();
+		if (string1.length() != string2.length()) {
+			return false;
+		}
+			char[] str1 = string1.toCharArray();
+			char[] str2 = string2.toCharArray();
+			Arrays.sort(str1);
+			Arrays.sort(str2);
+			
+			for (int i = 0; i < string1.length(); i++) {
+				if (str1[i] != str2[i]) {
+					return false;
+				}
+			}
+
+			return true;
+		
+	}
+
 
 	public static boolean isPrime(int n) {
 
@@ -498,16 +524,19 @@ public class Utility2 {
 			}
 		}
 		// char[] chars = list.toString().toCharArray();
+		int count = 0;
 		for (int i = 0; i < list.size(); i++) {
 			for (int j = i + 1; j < list.size(); j++) {
 				boolean b = (areAnagram((list.get(i)).toCharArray(), (list.get(j)).toCharArray()));
 				if (b) {
 					System.out.println("these numbers are anagrams");
 					System.out.println(list.get(i) + " " + list.get(j));
+					count++;
 				}
 			}
 
 		}
+		System.out.println("number of prime anagrams ="+ count);
 	}
 
 	/*
@@ -534,6 +563,9 @@ public class Utility2 {
 	 * @param elems is array which contains elements
 	 * @return  arrray of sorted elements
 	 */
+	
+	
+	
 	public static <T extends Comparable<T>> T[] insertionSort(T[] elems) {
 		int size = elems.length;
 
@@ -933,6 +965,20 @@ public String[] readFileForIntegers(String fileLocation) {
 	
 	return null;
 }
+
+public ArrayList<Integer> PrimesRange(int input) {
+	int i;
+	ArrayList<Integer>array=new ArrayList<Integer>();
+	for (i = 2; i <= input; i++) {
+		if (isPrime(i))
+			array.add(i);
+		else
+			continue;
+
+	}
+	return array;
+}
+
 
 
 	
