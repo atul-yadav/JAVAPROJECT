@@ -52,12 +52,16 @@ public class Stack<T> {
 			System.out.println("Empty stack");
 			return;
 		}
-		System.out.print("Top->");
+		System.out.print("Top-");
 		while(temp!=null) {
 			System.out.print(temp.data + " ");
 			temp = temp.next;
 		}
 		System.out.println(" ");
 		return;
+	}
+	
+	public boolean isEmpty() {
+		return (top==null)?true:false;
 	}
 }
