@@ -1,15 +1,13 @@
 package com.jda.datastructureprograms;
 
 import java.util.HashMap;
-
-import com.jda.utility.Queue1;
+import com.jda.utility.QueueUsingStacks;
 import com.jda.utility.Utility2;
 
-
-public class CalendarQueue {
+public class CalendarUsing2Stacks {
 	public static void main(String args[]) {
 		Utility2 utility = new Utility2();
-		HashMap<Integer, Queue1<Integer>> week = new HashMap<>();
+		HashMap<Integer, QueueUsingStacks<Integer>> week = new HashMap<>();
 		for (int i = 0; i < 6; i++) {
 			week.put(i, null);
 		}
@@ -30,17 +28,17 @@ public class CalendarQueue {
 		int d = Utility2.dayOfWeek(1, month, year);
 		int count = 1;
 		for (int i = 0; i < 6; i++) {
-			Queue1<Integer> queue = new Queue1<Integer>();
+			QueueUsingStacks<Integer> queue = new QueueUsingStacks<Integer>();
 			week.put(i, queue);
 			for (int j = 0; j < 7; j++) {
 				if (i == 0 && j < d)
-					week.get(i).enQueue(0);
+					week.get(i).enqueue(0);
 				else {
 					if (count <= days[month]) {
-						week.get(i).enQueue(count);
+						week.get(i).enqueue(count);
 						count++;
 					} else
-						week.get(i).enQueue(0);
+						week.get(i).enqueue(0);
 				}
 
 			}
@@ -48,7 +46,7 @@ public class CalendarQueue {
 		}
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 7; j++) {
-				int temp = week.get(i).deQueue().value;
+				int temp = week.get(i).dequeue();
 				if (temp <= 9) {
 					if (temp == 0)
 						System.out.print("   ");
