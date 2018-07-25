@@ -1,0 +1,19 @@
+{
+"fb":
+[
+ {
+  "stockNames":"facebook",
+  "sharePrice":2000,
+  "quantity":10
+  
+}
+],
+"gog":
+[
+{
+  "stockNames":"google",
+  "sharePrice":2200,
+  "quantity":12
+}
+]
+}

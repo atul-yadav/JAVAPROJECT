@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -977,6 +979,24 @@ public ArrayList<Integer> PrimesRange(int input) {
 
 	}
 	return array;
+}
+
+public static StringBuilder createJsonfromArray(Collection products) {
+	StringBuilder jsonstring = new StringBuilder();
+	jsonstring.append('[');
+	Iterator iterator = products.iterator();
+	while (iterator.hasNext()) {
+
+		jsonstring.append(iterator.next());
+		if (iterator.hasNext()) {
+			jsonstring.append(",");
+		}
+		
+
+	}
+	jsonstring.append("]");
+	return jsonstring;
+
 }
 
 

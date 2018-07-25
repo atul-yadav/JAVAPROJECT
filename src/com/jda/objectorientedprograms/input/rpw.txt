@@ -1,0 +1,35 @@
+{
+"rice":
+[
+{
+  "name" : "Basmati",
+  "weight" : 50,
+  "price" : 100
+},
+{
+  "name" : "mansoori",
+  "weight": 70,
+  "price":80
+  
+}
+],
+
+"pulses":
+[
+{
+  "name" : "Red Gram",
+  "weight": 20,
+  "price" :200
+	
+}
+],
+
+"wheat":
+[
+{
+  "name" : "Aashirwad",
+  "weight" : 60,
+  "price" : 30
+}
+]
+}
