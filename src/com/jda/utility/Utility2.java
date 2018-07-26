@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -998,6 +1000,22 @@ public static StringBuilder createJsonfromArray(Collection products) {
 	return jsonstring;
 
 }
+
+
+public String regularExpression(String string, String firstName, String lastName, String phoneNumber )
+{
+	string = string.replaceAll("<<[a-z]{4}>>", firstName);
+	string = string.replaceAll("<<[a-z ]{9}>>", (firstName+" "+lastName));
+	string = string.replaceAll("[x]{10}", phoneNumber);
+	LocalDate ldate = LocalDate.now();
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	String day = ldate.format(formatter);
+
+	string = string.replaceAll("01/01/2016", day);
+	return string;
+	
+}
+
 
 
 
