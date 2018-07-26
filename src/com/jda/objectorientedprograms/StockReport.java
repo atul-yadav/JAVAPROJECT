@@ -18,39 +18,13 @@ public class StockReport {
 		JSONParser parser = new JSONParser();
 
 		JSONObject stockobj = (JSONObject) parser.parse(new FileReader("C:\\Users\\1023340\\eclipse-workspace\\JAVAPROJECT\\src\\com\\jda\\objectorientedprograms\\input\\stock.txt"));
-		String[] stocks = { "fb", "gog"};
+		String[] stocks = { "facebook", "alphabet"};
 		HashMap<String, ArrayList<StockPortfolio>> StockMap = new HashMap();
 		for (String stock : stocks) {
-			StockMap.put(stock, readJsonArray(stockobj, stock));
+			StockMap.put(stock, StockMethods.readJsonArray(stockobj, stock));
 		}
-		printValue(StockMap);
+		StockMethods.printValue(StockMap);
 
 	}
 
-	private static ArrayList<StockPortfolio> readJsonArray(JSONObject stock, String stockname) {
-		ArrayList<StockPortfolio> items = new ArrayList<>();
-		for (Object astock : (JSONArray) stock.get(stockname)) {
-			items.add(new StockPortfolio((JSONObject) astock));
-		}
-		return items;
-	}
-
-	private static void printValue(HashMap<String, ArrayList<StockPortfolio>> stockMap) {
-
-		for (String key : stockMap.keySet()) {
-			System.out.println(key + " is worth " + calculateValueOf(stockMap.get(key)));
-		}
-	}
-
-	private static long calculateValueOf(ArrayList<StockPortfolio> types) {
-		long value = 0;
-		for (int i = 0; i < types.size(); i++) {
-			System.out.println(types.get(i).getname() + " is worth " + types.get(i).value());
-			value += types.get(i).value();
-
-		}
-		System.out.println("------------");
-		return value;
-
-	}
 }

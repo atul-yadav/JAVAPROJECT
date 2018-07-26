@@ -31,8 +31,8 @@ public class Inve {
 		
 		int choice;
 		do {
-			System.out.println("please enter the operation you want to perform,To add product(1),To remove product(2)");
-			System.out.println("To print value of a inventory(3),To update JSONfile(4),To stop(0)");
+			System.out.println("please enter the operation you want to perform,To add product(1),To remove product(2), To print value of a inventory(3)");
+			System.out.println("");
 			choice = utility.inputInteger();
 			switch (choice) {
 			case 1: {
@@ -53,10 +53,7 @@ public class Inve {
 				InventoryMehtods.printValue(MapofInventory);
 				break;
 			}
-			case 4: {
-				InventoryMehtods.printJSONinaFile(MapofInventory);
-				break;
-			}
+			
 			}
 		} while (choice != 0);
 

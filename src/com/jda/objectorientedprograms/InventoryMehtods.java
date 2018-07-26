@@ -28,7 +28,7 @@ public class InventoryMehtods {
 			output.flush();
 			output.close();
 		} catch (Exception e) {
-			System.out.println("something went wrong");
+			System.out.println("invalid");
 		}
 
 	}
@@ -41,9 +41,12 @@ public class InventoryMehtods {
 	 * @param item
 	 */
 	public static void removeitem(HashMap<String, ArrayList<Inventory>> inventoryMap, String inventory, String item) {
-		Iterator iterator = inventoryMap.keySet().iterator();
+		Iterator iterator = inventoryMap.keySet().iterator();  
+		
+		System.out.println("atul" + inventoryMap.keySet());
 		int check = 0;
 		while (iterator.hasNext()) {
+			
 			if (((String) iterator.next()).compareTo(inventory) == 0) {
 				for (int i = 0; i < inventoryMap.get(inventory).size(); i++) {
 					if ((inventoryMap.get(inventory).get(i).getname()).compareTo(item) == 0) {
@@ -60,7 +63,7 @@ public class InventoryMehtods {
 			System.out.println("Not found inventory with the given name");
 		else {
 			printJSONinaFile(inventoryMap);
-			System.out.println("update JSON file");
+			//System.out.println("update JSON file");
 		}
 	}
 
@@ -72,7 +75,7 @@ public class InventoryMehtods {
 	 */
 	public static void additem(HashMap<String, ArrayList<Inventory>> inventoryMap) {
 		Utility2 utility = new Utility2();
-		System.out.println("enter the  product name");
+		System.out.println("enter the inventory  name");
 		String inventory = utility.inputString();
 		System.out.println("please enter the new product name");
 		String name = utility.inputString();
@@ -82,7 +85,7 @@ public class InventoryMehtods {
 		long priceperkg = utility.inputInteger();
 		Inventory obj = new Inventory(name, weight, priceperkg);
 		if (inventoryMap.get(inventory) == null) {
-			System.out.println("No such a inventory is present,So added a new inventory");
+			System.out.println("No such inventory found ,So added a new inventory");
 			ArrayList<Inventory> items = new ArrayList<>();
 			//System.out.println(items);
 			inventoryMap.put(inventory, items);
@@ -113,7 +116,9 @@ public class InventoryMehtods {
 				jsonstring.append(",");
 		}
 		jsonstring.append("}");
+		System.out.println(jsonstring);
 		return jsonstring;
+		
 	}
 
 	public static void printValue(HashMap<String, ArrayList<Inventory>> inventoryMap) {
