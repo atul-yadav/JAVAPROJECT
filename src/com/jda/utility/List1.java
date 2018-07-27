@@ -1,6 +1,6 @@
 package com.jda.utility;
 
-public class List<T extends Comparable<? super T>> {
+public class List1<T extends Comparable<? super T>> {
 	
 	public Node head;
 	

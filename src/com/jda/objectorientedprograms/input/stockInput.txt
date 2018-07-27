@@ -1,0 +1,17 @@
+[
+	{
+		"company":"facebook",
+		"noOfShares":100,
+		"price":10
+	},
+	{
+		"company":"google",
+		"noOfShares":150,
+		"price":30
+	},
+	{
+		"company":"tesla",
+		"noOfShares":30,
+		"price":40
+	}
+]

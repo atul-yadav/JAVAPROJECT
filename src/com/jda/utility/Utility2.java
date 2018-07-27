@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -1014,6 +1015,60 @@ public String regularExpression(String string, String firstName, String lastName
 	string = string.replaceAll("01/01/2016", day);
 	return string;
 	
+}
+
+
+
+public String getRank(int rank) {
+	switch(rank) {
+	case 0:
+		return "2";
+	case 1:
+		return "3";
+	case 2:
+		return "4";
+	case 3:
+		return "5";
+	case 4:
+		return "6";
+	case 5:
+		return "7";
+	case 6:
+		return "8";
+	case 7:
+		return "9";
+	case 8:
+		return "10";
+	case 9:
+		return "Jack";
+	case 10:
+		return "Queen";
+	case 11:
+		return "King";
+	case 12:
+		return "Ace";
+	default:
+		return "";
+	}
+
+
+}
+
+
+
+public String getSuit(int suit) {
+	switch(suit) {
+	case 0:
+		return "Clubs";
+	case 1:
+		return "Diamonds";
+	case 2:
+		return "Hearts";
+	case 3:
+		return "Spades";
+	default:
+		return "";
+	}
 }
 
 

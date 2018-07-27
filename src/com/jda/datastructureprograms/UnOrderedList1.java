@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import com.jda.utility.List;
+import com.jda.utility.List1;
 import com.jda.utility.Utility2;
 
 public class UnOrderedList1
@@ -17,7 +17,7 @@ public class UnOrderedList1
 		// TODO Auto-generated method stub
 		Utility2 utility = new Utility2();
 		
-		List<String> myLinkedList = new List<String>();
+		List1<String> myLinkedList = new List1<String>();
 		String[] strings;
 		BufferedReader bufferedReader = null;
 		try 

@@ -1,6 +1,7 @@
 package com.jda.objectorientedprograms;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,17 +20,28 @@ public class InventoryMehtods {
 	 * 
 	 * @param inventoryMap
 	 */
+	public static void printToFile(String filePath, Object object) {
+	    try (PrintWriter out = new PrintWriter(filePath)) {
+	      out.println(object);
+	    } catch (FileNotFoundException e) {
+	      System.out.println("Writing invalid");
+	    }
+	  }
+	  
+	
 	public static void printJSONinaFile(HashMap<String, ArrayList<Inventory>> inventoryMap) {
 		StringBuilder jsonstring = createJSONString(inventoryMap);
-
+		String filePath = "C:\\\\Users\\\\1023340\\\\eclipse-workspace\\\\JAVAPROJECT\\\\src\\\\com\\\\jda\\\\objectorientedprograms\\\\input\\\\rpw.txt";
+		//printToFile(filePath, inventoryMap);
 		try {
-			PrintWriter output = new PrintWriter(new File("C:\\Users\\1023340\\eclipse-workspace\\JAVAPROJECT\\src\\com\\jda\\objectorientedprograms\\output\\out.txt"));
+			PrintWriter output = new PrintWriter(new File("filePath"));
 			output.print(jsonstring);
 			output.flush();
 			output.close();
 		} catch (Exception e) {
 			System.out.println("invalid");
 		}
+		
 
 	}
 
@@ -63,7 +75,7 @@ public class InventoryMehtods {
 			System.out.println("Not found inventory with the given name");
 		else {
 			printJSONinaFile(inventoryMap);
-			//System.out.println("update JSON file");
+			System.out.println("update JSON file");
 		}
 	}
 
@@ -87,7 +99,7 @@ public class InventoryMehtods {
 		if (inventoryMap.get(inventory) == null) {
 			System.out.println("No such inventory found ,So added a new inventory");
 			ArrayList<Inventory> items = new ArrayList<>();
-			//System.out.println(items);
+			System.out.println(items);
 			inventoryMap.put(inventory, items);
 		}
 		inventoryMap.get(inventory).add(obj);
@@ -114,6 +126,7 @@ public class InventoryMehtods {
 					.append(Utility2.createJsonfromArray(inventoryMap.get(key)));
 			if (iterator.hasNext())
 				jsonstring.append(",");
+			
 		}
 		jsonstring.append("}");
 		System.out.println(jsonstring);
