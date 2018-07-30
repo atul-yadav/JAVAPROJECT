@@ -1071,6 +1071,16 @@ public String getSuit(int suit) {
 	}
 }
 
+public long totalValuesOfShares(List<Company> company) {
+	long totalShares = 0;
+	for (Company c : company) {
+		long share = c.getSharesAvailable();
+		long price = c.getPricePerShare();
+		totalShares += (share * price);
+	}
+	return totalShares;
+}
+
 
 
 

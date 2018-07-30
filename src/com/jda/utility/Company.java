@@ -1,36 +1,31 @@
 package com.jda.utility;
 
-public class Company {
-		private String company;
-		private long share;
-		private long price;
-		
-		
-		public String getCompany() {
-			return company;
-		}
-		public void setCompany(String company) {
-			this.company = company;
-		}
-		public long getShare() {
-			return share;
-		}
-		public void setShare(long share) {
-			this.share = share;
-		}
-		public long getPrice() {
-			return price;
-		}
-		public void setPrice(long price) {
-			this.price = price;
-		}
-		
-		public String toString() {
-			return "{" + "\"name\":\"" + company + ",\"" + "\"noofshare\":\"" + share + ",\"shareprice\":\"" + price + "}";
-
-		}
-		
+public class Company 
+{
+	private String company;
+	private long sharesAvailable;
+	private long pricePerShare;
+	@Override
+	public String toString() {
+		return "\n\t\t\tCompany \n\t\t\t\tcompany : " + company + "\n\t\t\t\tsharesAvailable : " + sharesAvailable + "\n\t\t\t\tpricePerShare : "
+				+ pricePerShare +"\n";
 	}
-	
-
-
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public long getSharesAvailable() {
+		return sharesAvailable;
+	}
+	public void setSharesAvailable(long sharesAvailable) {
+		this.sharesAvailable = sharesAvailable;
+	}
+	public long getPricePerShare() {
+		return pricePerShare;
+	}
+	public void setPricePerShare(long pricePerShare) {
+		this.pricePerShare = pricePerShare;
+	}
+}
