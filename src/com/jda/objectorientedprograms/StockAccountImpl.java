@@ -27,21 +27,16 @@ public class StockAccountImpl implements StockAccount {
 	Date date = new Date();
 	long currentAmount;
 
-	/* 
-	 * Purpose : Finding total value of share
-	 */
+	
 	public long valueOf(List<Company> company) {
 		long value = utility.totalValuesOfShares(company);
 		return value;
 	}
 
-	/* 
-	 * Purpose : Buy shares from the user from particular company.
-	 */
 	public void buy(String name) {
-		System.out.println("\n\t\t\tEnter the symbol");
+		System.out.println("Enter the customer name");
 		String symbol = utility.inputString();
-		System.out.println("\n\t\t\tEnter the Amount");
+		System.out.println("tEnter the Amount");
 		long amount = utility.inputInteger();
 		shareIncreaseDecrease = 0;
 		Transaction transaction = new Transaction();
@@ -76,29 +71,27 @@ public class StockAccountImpl implements StockAccount {
 					shareIncreaseDecrease = amount / c.getPricePerShare();
 					c.setSharesAvailable(c.getSharesAvailable() - shareIncreaseDecrease);
 					queue.add(date.toString());
-					System.out.println("\n\t\t\tTransaction Started");
+					System.out.println("Transaction Started");
 					transaction.setBuySell("Buy");
 					transaction.setName(name);
 					transaction.setSymbol(symbol);
 					transaction.setDate(date.toString());
 					transactionList.add(transaction);
 					queue.remove();
-					System.out.println("\n\t\t\tTransaction Stopped");
+					System.out.println("Transaction Stopped");
 				}
 			}
 		}
 		if (amountSmall == 0) {
-			System.out.println("\n\t\t\tYour Balance is low\n\t\t\tPlease Add money");
+			System.out.println("Your Balance is low. Please Add money");
 		}
 	}
 	
-	/* 
-	 * Purpose : Sell the shares that the customer has.
-	 */
+	
 	public void sell(String name) {
-		System.out.println("\n\t\t\tEnter the symbol");
+		System.out.println("Enter the symbol");
 		String symbol = utility.inputString();
-		System.out.println("\n\t\t\tEnter the Amount");
+		System.out.println("Enter the Amount");
 		long amount = utility.inputInteger();
 		Transaction transaction = new Transaction();
 		shareIncreaseDecrease = 0;
@@ -141,11 +134,7 @@ public class StockAccountImpl implements StockAccount {
 		}
 	}
 
-	/**
-	 * Purpose : Creates file for n user
-	 * 
-	 * @throws IOException
-	 */
+	
 	public void create() throws IOException {
 		Utility2 utility = new Utility2();
 		System.out.println("\n\t\t\tEnter the name of for new Account");
@@ -158,12 +147,7 @@ public class StockAccountImpl implements StockAccount {
 		}
 	}
 
-	/**
-	 * Purpose : Saves List in file
-	 * 
-	 * @param file is the name of file in which data is to be saved 
-	 * @param T is the list in which data is there
-	 */
+	
 	public <T> void saveInFile(String file, List<T> T) {
 		try {
 			mapper.writeValue(new File("Stock/" + file + ".json"), T);
@@ -177,16 +161,11 @@ public class StockAccountImpl implements StockAccount {
 		}
 	}
 
-	/**
-	 * Purpose : Reads data from file
-	 * 
-	 * @param file is the name of the file from where data is read 
-	 * @throws Exception
-	 */
+	
 	public void read(String file) throws Exception {
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("Stock/" + file + ".txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\1023340\\eclipse-workspace\\JAVAPROJECT\\src\\com\\jda\\objectorientedprograms\\input\\" + file + ".txt"));
 			String arrayToJson;
 			if ((arrayToJson = reader.readLine()) != null) {
 				if (file.equals("Company")) {
@@ -208,14 +187,9 @@ public class StockAccountImpl implements StockAccount {
 
 	}
 
-	/**
-	 * Purpose : Checks whether entered file is present or not  
-	 * 
-	 * @param existingAddressBook
-	 * @return true if file is present
-	 */
+	
 	public boolean checkAddress(String existingAddressBook) {
-		File f = new File("Stock/");
+		File f = new File("C:\\Users\\1023340\\eclipse-workspace\\JAVAPROJECT\\src\\com\\jda\\objectorientedprograms\\input\\");
 		for (File file : f.listFiles()) {
 			if (file.isFile()) {
 				if (file.getName().equals(existingAddressBook + ".json")) {
@@ -227,9 +201,7 @@ public class StockAccountImpl implements StockAccount {
 		return false;
 	}
 
-	/**
-	 * Displays customer list
-	 */
+	
 	public void printCustomer() {
 		for (Customer customer : customerList) {
 			System.out.println(customer.toString());
@@ -267,14 +239,7 @@ public class StockAccountImpl implements StockAccount {
 	public void save(String file, String name) {
 		int loopSave = 0;
 		while (loopSave == 0) {
-			System.out.println("\t\t\t_________________________\n"
-							 + "\t\t\t|       Save Menu        |\n"
-							 + "\t\t\t|      -----------       |\n"
-							 + "\t\t\t|  1. Save Company       |\n"
-							 + "\t\t\t|  2. Save User          |\n"
-							 + "\t\t\t|  3. Save Transaction   |\n"
-							 + "\t\t\t|  4. Exit               |\n"
-							 + "\t\t\t|________________________|\n");
+			
 			int choiceSave = utility.inputInteger();
 			switch (choiceSave) {
 			case 1:
@@ -301,7 +266,7 @@ public class StockAccountImpl implements StockAccount {
 	 * Purpose : Add or remove company from company list 
 	 */
 	public void addRemoveCompany() {
-		LinkedList<Company> list = new LinkedList<Company>();
+		MyLinkedList<Company> list = new MyLinkedList<Company>();
 		
 		System.out.println("\n\t\t\tEnter ID");
 		String id = utility.inputString();
@@ -316,14 +281,7 @@ public class StockAccountImpl implements StockAccount {
 		}
 		int loopAdd=0;
 		while(loopAdd==0) {
-		System.out.println("\t\t\t______________________________\n"
-						 + "\t\t\t|  Company Add & Remove Menu  |\n"
-						 + "\t\t\t| --------------------------- |\n"
-						 + "\t\t\t|         1. Add              |\n"
-						 + "\t\t\t|         2. Remove           |\n"
-						 + "\t\t\t|         3. Save             |\n"
-						 + "\t\t\t|         3. Exit             |\n"
-						 + "\t\t\t|_____________________________|\n");
+		
 		int choice = utility.inputInteger();
 		switch(choice) {
 		case 1:

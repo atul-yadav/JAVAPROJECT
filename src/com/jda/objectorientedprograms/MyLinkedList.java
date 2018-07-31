@@ -4,7 +4,7 @@ import java.io.*;
 
 import com.jda.utility.Company;
 
-public class LinkedList<T> {
+public class MyLinkedList<T> {
 	Node<T> head;
 	public static Company company = new Company();
 	public void add(T file) {
@@ -214,7 +214,7 @@ public class LinkedList<T> {
 	
 	
 	public static void main(String[] args)throws Exception {
-		LinkedList<Integer> list = new LinkedList<Integer>();
+		MyLinkedList<Integer> list = new MyLinkedList<Integer>();
 		list.add(1);
 		list.add(2);
 		list.add(4);

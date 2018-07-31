@@ -22,14 +22,7 @@ public class StockManager {
 		String name;
 		int loopClinic = 0;
 		while(loopClinic==0) {
-			System.out.println("\t\t\t_________________________________\n"
-							 + "\t\t\t|         Stock Manager          |\n"
-							 + "\t\t\t|        ---------------         |\n"
-							 + "\t\t\t|   1. Create Account            |\n"
-							 + "\t\t\t|   2. Open Existing Account     |\n"
-							 + "\t\t\t|   3. Add & Remove Company      |\n"
-							 + "\t\t\t|   4. Exit                      |\n"
-							 + "\t\t\t|________________________________|\n");
+			
 			int choice = utility.inputInteger();
 			switch(choice) {
 			case 1:
@@ -44,16 +37,7 @@ public class StockManager {
 				stockAccount.read(name);
 				while (loopMenu == 0) {
 					if(stockAccount.checkAddress(name)) {
-					System.out.println("\t\t\t_____________________\n"
-									 + "\t\t\t|       Menu         |\n"
-									 + "\t\t\t|      ------        |\n"
-									 + "\t\t\t|  1. Add Amount     |\n"
-									 + "\t\t\t|  2. Buy Shares     |\n"
-									 + "\t\t\t|  3. Sell Shares    |\n"  
-									 + "\t\t\t|  4. Save Account   |\n" 
-									 + "\t\t\t|  5. Print Report   |\n" 
-									 + "\t\t\t|  6. Exit           |\n"
-									 + "\t\t\t|____________________|\n");
+					
 					System.out.println("\n\t\t\tEnter your choice");
 					int ch = utility.inputInteger();
 					switch (ch) {
@@ -72,14 +56,7 @@ public class StockManager {
 					case 5:
 						int loopDisplay=0;
 						while(loopDisplay==0) {
-							System.out.println("\t\t\t_______________________________________\n"
-											 + "\t\t\t|            Display Menu              |\n"
-											 + "\t\t\t|           --------------             |\n"
-											 + "\t\t\t|  1. To display company               |\n"
-											 + "\t\t\t|  2. To display current Customer      |\n"
-											 + "\t\t\t|  3. To display Transaction           |\n"
-											 + "\t\t\t|  4. Exit                             |\n"
-											 + "\t\t\t|______________________________________|\n");
+							
 							int choiceDisplay = utility.inputInteger();
 							switch(choiceDisplay) {
 							case 1:

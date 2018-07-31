@@ -1,109 +1,57 @@
 package com.jda.utility;
-import com.jda.utility.Node;
 
-
-public class Queue<T> {
-	Node front = null;
-	Node tail = null;
-	
-	class Node{
-		T data;
-		Node next;
-		Node(T t){
-			data = t;
-			next=null;
-			}	
+public class Queue<T extends Comparable<T>> {
+	public Qnode<T> front = null;
+	public Qnode<T> rear = null;
+	public int size;
+	public static class Qnode<S> {
+		public S value;
+		public Qnode<S> next;
+        public String purpose=null;
+        Qnode(S data)
+        {value = data;
+		next = null;
+        }
+		Qnode(S data,String pur) {
+			value = data;
+			purpose=pur;
+			next = null;
+		}
 	}
-	
-	
-	public void enQueue(T value) {
-		Node newNode = new Node(value);
-		if(isEmpty()) {
-			front = newNode;
-			tail = newNode;
+
+	public Queue() {
+		rear = front = null;
+	}
+	public void enqueue(T data) {
+		Qnode<T> newnode = new Qnode<T>(data);
+		if (rear == null) {
+			rear = front = newnode;
 			return;
 		}
-		
-		tail.next = newNode;
-		tail = newNode;
-		return;
+		rear.next = newnode;
+		rear = newnode;
+		size++;
 	}
-	
-	public T deQueue() {
-		if(isEmpty()) {
-			System.out.println("Queue empty");
+	public void enqueuebank(T data,String purpose) {
+		Qnode<T> newnode = new Qnode<T>(data,purpose);
+		if (rear == null) {
+			rear = front = newnode;
+			return;
+		}
+		rear.next = newnode;
+		rear = newnode;
+	}
+
+	public Qnode<T> dequeue() {
+		if (front == null)
 			return null;
-		}
-		
-		Node temp = front;
-		
-		if(temp.next==null) {
-			front = null;
-			tail = null;
-			return temp.data;
-		}
-		
+		Qnode<T> temp=front;
 		front = front.next;
-		return temp.data;
+		if (front == null)
+			rear = null;
+		size--;
+		return temp;
+     
 	}
 	
-	public void printQueue() {
-		if(isEmpty()) {
-			System.out.println("Empty queue");
-			return;
-		}
-		Node temp = front;
-		//System.out.print(" ");
-		while(temp!=null) {
-			System.out.print(temp.data + "  ");
-			temp = temp.next;
-		}
-		System.out.print("End\n");
-		return;
-	}
-	
-	public boolean isEmpty() {
-		return (front==null)?true:false;
-	}
-	public int getSize() {
-		if(isEmpty()) {
-			return 0;
-		}
-		Node temp = front;
-		int size = 0;
-		while(temp!=null) {
-			size++;
-			temp = temp.next;
-		}
-		return size;
-	}
-
-	public void getStatus() {
-		int size = getSize();
-		System.out.print("Number of people in queue " + size + "\n");
-		if(size<1)
-			return;
-		System.out.println("Queue status : ");
-		
-	}
-
-	public T deQueueRear() {
-		if(front == null)
-			return null;
-		if(front.next == null) {
-			Node temp = front;
-			front = null;
-			return temp.data;
-		}
-		Node newEnd = front;
-		Node end;
-		while(newEnd.next.next!=null) {
-			newEnd = newEnd.next;
-		}
-		end = newEnd.next;
-		newEnd.next = null;
-		return end.data;
-	}
-	
-
 }

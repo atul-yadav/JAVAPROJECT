@@ -2,7 +2,7 @@
 	{
 		"company":"facebook",
 		"noOfShares":100,
-		"price":10
+		"price":2000
 	},
 	{
 		"company":"google",
@@ -12,6 +12,6 @@
 	{
 		"company":"tesla",
 		"noOfShares":30,
-		"price":40
+		"price":4000
 	}
-]s
+]

@@ -53,6 +53,13 @@ public class Inve {
 				InventoryMehtods.printValue(MapofInventory);
 				break;
 			}
+			case 4: {
+				InventoryMehtods.printJSONinaFile(MapofInventory);
+				//InventoryMehtods.toFile(MapofInventory);
+				
+				break;
+				
+			}
 			
 			}
 		} while (choice != 0);

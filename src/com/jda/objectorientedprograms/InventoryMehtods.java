@@ -2,6 +2,8 @@ package com.jda.objectorientedprograms;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +22,40 @@ public class InventoryMehtods {
 	 * 
 	 * @param inventoryMap
 	 */
+	public static void toFile(HashMap<String, ArrayList<Inventory>> map) {
+		JSONObject obj = new JSONObject();
+		int k = 0;
+		Iterator iterator = map.keySet().iterator();
+		while (iterator.hasNext()) {
+			String key = iterator.next().toString();
+			ArrayList<Inventory> i = map.get(key);
+			JSONArray jarray = new JSONArray();
+			int j = 0;
+			while (j < i.size()) {
+				Inventory inven = new Inventory(obj);
+				inven.setname(i.get(j).getname());
+				inven.setweight(i.get(j).getweight());
+				inven.setpriceperkg(i.get(j).getpriceperkg());
+				jarray.add(inven);
+				j++;
+			}
+			obj.put(key, jarray);
+			k++;
+		}
+
+		try (FileWriter file = new FileWriter("C:\\\\\\\\Users\\\\\\\\1023340\\\\\\\\eclipse-workspace\\\\\\\\JAVAPROJECT\\\\\\\\src\\\\\\\\com\\\\\\\\jda\\\\\\\\objectorientedprograms\\\\\\\\input\\\\\\\\rpw.txt")) {
+
+			obj.writeJSONString(file);
+			file.flush();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 	public static void printToFile(String filePath, Object object) {
 	    try (PrintWriter out = new PrintWriter(filePath)) {
 	      out.println(object);
@@ -32,7 +68,7 @@ public class InventoryMehtods {
 	public static void printJSONinaFile(HashMap<String, ArrayList<Inventory>> inventoryMap) {
 		StringBuilder jsonstring = createJSONString(inventoryMap);
 		String filePath = "C:\\\\Users\\\\1023340\\\\eclipse-workspace\\\\JAVAPROJECT\\\\src\\\\com\\\\jda\\\\objectorientedprograms\\\\input\\\\rpw.txt";
-		//printToFile(filePath, inventoryMap);
+		printToFile(filePath, inventoryMap);
 		try {
 			PrintWriter output = new PrintWriter(new File("filePath"));
 			output.print(jsonstring);
@@ -151,6 +187,7 @@ public class InventoryMehtods {
 		return value;
 
 	}
+	
 
 }
 
