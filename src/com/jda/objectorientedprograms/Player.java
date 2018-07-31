@@ -32,6 +32,7 @@ public class Player {
 
 	public Queue<String> getqueue() {
 
+		
 		return queue;
 	}
 
