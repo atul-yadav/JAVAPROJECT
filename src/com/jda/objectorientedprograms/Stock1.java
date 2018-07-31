@@ -15,7 +15,7 @@ public class Stock1 {
 
 		int choice;
 		do {
-			System.out.println("1.Return value, 2.Sell shares to customer, 3.Save transaction to file, 4.Print transactions");
+			System.out.println("1.Print value, 2.Sell shares, 3.Save transaction to file, 4.Print transactions");
 			choice = utility.inputInteger();
 			switch(choice) {
 			case 1:

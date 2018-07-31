@@ -18,7 +18,7 @@ public class DeckOfCardsQueue {
 			playerq.add(player);
 			if (deckofcards.getTotalnoofcards() != 0) {
 				System.out.println(deckofcards.getTotalnoofcards() + 1);
-				System.out.println("cards of person   " + i + "--");
+				System.out.println("cards of "+ i +"'s" + " person");
 				count = 9;
 				while (count != 0) {
 
@@ -28,14 +28,18 @@ public class DeckOfCardsQueue {
 					count--;
 				}
 			}
+			System.out.println("---------------------------------------");
 
 		}
-		System.out.println("AFTER REARRANGING CARDS------------");
+		System.out.println("after shuffling");
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		for(int i=1;i<5;i++)
-		{  System.out.println("cards of person   "+i+"--");
+		{  
+			System.out.println("cards of person   "+i);
 			player=playerq.remove();
-			player.SortCards();
+			player.sortCards();
 			player.printQueue();
+			
 			
 			
 		}

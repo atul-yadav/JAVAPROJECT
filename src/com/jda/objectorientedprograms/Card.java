@@ -10,19 +10,22 @@ public class Card {
 		this.rank = rank;
 
 	}
+	
 	@Override
+	
 	public String toString()
 	{
-		return ranks[rank]+" of "+suits[suit];
+		return suits[suit] + "-- "+ ranks[rank];
 		
 	}
-
 }
 
 
 
-/*
 
+
+
+/*
 public class Card {
 	String suit;
 	String rank;
@@ -39,6 +42,7 @@ public class Card {
 	public String getRank() {
 		return rank;
 	}
+}
 
 	
 	String getRank(int rankNumber) {

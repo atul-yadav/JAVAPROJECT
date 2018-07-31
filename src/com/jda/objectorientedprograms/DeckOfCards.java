@@ -5,10 +5,10 @@ import java.util.Random;
 public class DeckOfCards {
 	
 	private Card[] cards;
-	int noofcards;
+	int noOfCards;
 
 	DeckOfCards() {
-		noofcards = 51;
+		noOfCards = 51;
 		cards = new Card[52];
 		int x = 0;
 		for (int i = 0; i < 4; i++) {
@@ -21,13 +21,14 @@ public class DeckOfCards {
 	}
 
 	public Card draw() {
-		Random generator = new Random();
+		Random random = new Random();
 		int index = 0;
-		do {
-			index = generator.nextInt(52);
-
-		} while (cards[index] == null);
-		noofcards--;
+		
+		while (cards[index] == null)
+		{
+			index = random.nextInt(52);
+		}
+		noOfCards--;
 		Card temp = cards[index];
 		cards[index] = null;
 		return temp;
@@ -35,7 +36,7 @@ public class DeckOfCards {
 	}
 	public int getTotalnoofcards()
 	{
-		return noofcards;
+		return noOfCards;
 	}
 
 }

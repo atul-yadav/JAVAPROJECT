@@ -18,16 +18,16 @@ import com.jda.utility.Utility2;
 
 public class StockImplementation {
 	
-	static JSONObject transaction = new JSONObject();
-	static LinkedList<JSONObject> customerList = new LinkedList<JSONObject>();
-	static LinkedList<JSONObject> stockList = new LinkedList<JSONObject>();
+	 static JSONObject transaction = new JSONObject();
+	 static LinkedList<JSONObject> customerList = new LinkedList<JSONObject>();
+	 static LinkedList<JSONObject> stockList = new LinkedList<JSONObject>();
 	static Stack<JSONObject> transactionStack = new Stack<JSONObject>();
 	
 	public static JSONArray readCustomerFile() throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		Object obj = parser.parse(new FileReader("C:\\\\Users\\\\1023340\\\\eclipse-workspace\\\\JAVAPROJECT\\\\src\\\\com\\\\jda\\\\objectorientedprograms\\\\input\\\\Customer.json"));
 		JSONObject jo = (JSONObject) obj;
-		JSONArray array = (JSONArray) jo.get("Customer");
+		JSONArray array = (JSONArray) jo.get("symbol");
 		return array;
 	}
 	
@@ -124,7 +124,7 @@ public class StockImplementation {
 	
 	//print a detailed report of stocks and values
 	public static void printReport() throws FileNotFoundException, IOException, ParseException {
-		JSONObject jo = new JSONObject();
+		
 		/*jo = transactionStack.pop();
 		System.out.println("CustomerName : " + jo.get("CustomerName"));
 		System.out.println("StockPurchased : " + jo.get("StockPurchased"));
@@ -132,7 +132,8 @@ public class StockImplementation {
 		System.out.println("Date : " + jo.get("Date"));
 		System.out.println("Time : " + jo.get("Time"));*/
 		JSONParser parser = new JSONParser();
-		jo = (JSONObject) parser.parse(new FileReader("Input\\Transactions.json"));
+		JSONObject jo = new JSONObject();
+		jo = (JSONObject) parser.parse(new FileReader("C:\\\\\\\\Users\\\\\\\\1023340\\\\\\\\eclipse-workspace\\\\\\\\JAVAPROJECT\\\\\\\\src\\\\\\\\com\\\\\\\\jda\\\\\\\\objectorientedprograms\\\\\\\\input\\\\\\\\Transactions.json"));
 		JSONArray ja = (JSONArray)jo.get("Transactions");
 		JSONObject object = (JSONObject) ja.get(ja.size()-1);
 		System.out.println("CustomerName : " + object.get("CustomerName"));
