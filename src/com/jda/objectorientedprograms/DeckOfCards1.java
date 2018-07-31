@@ -14,6 +14,7 @@ public class DeckOfCards1 {
 		for (int i = 1; i <= 4; i++) {
 			deckOfCards.allotCards(i);
 			System.out.println("Player "  + i + " cards:");
+			
 			deckOfCards.print(i);
 		}
 		
