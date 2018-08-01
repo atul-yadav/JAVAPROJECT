@@ -53,5 +53,12 @@ public class Queue<T extends Comparable<T>> {
 		return temp;
      
 	}
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		if (front == rear)
+			return true;
+		else
+			return false;
+	}
 	
 }

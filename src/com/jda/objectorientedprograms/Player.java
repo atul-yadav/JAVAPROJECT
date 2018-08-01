@@ -1,55 +1,30 @@
 package com.jda.objectorientedprograms;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-import com.jda.utility.Queue;
-
-import com.jda.utility.Queue1.Qnode;
-
 public class Player {
 
-	Queue<String> queue;
-	ArrayList<String> list = new ArrayList<String>();
-
-	Player() {
-		queue = new Queue<String>();
+	MyQueue<Card> cardsQue;
+	int[][] playerCards;
+	
+	public Player() {
+		cardsQue = new MyQueue<Card>();
+		playerCards = new int[4][13];
 	}
-
-	public void sortCards() {
-		for (int i = 0; i < 9; i++) {
-			com.jda.utility.Queue.Qnode<String> temp = queue.dequeue();
-			list.add((String) temp.value);
-
+	
+	public void addCard(int suit, int rank) {
+		playerCards[suit][rank] = 1;
+	}
+	
+	public Card getCard() {
+		return cardsQue.dequeue();
+	}
+	
+	public void enqueueCards() {
+		for (int suit = 0; suit < 4; suit++) {
+			for (int rank = 0; rank < 13; rank++) {
+				if(playerCards[suit][rank] == 1) {
+					cardsQue.enqueue(new Card(suit, rank));
+				}								
+			}			
 		}
-		
-		Collections.sort(list);
-		for (int i = 0; i < list.size(); i++) {
-
-			queue.enqueue(list.get(i));
-			
-			
-		}
-		
-		
-
 	}
-
-	public Queue<String> getqueue() {
-		
-		return queue;
-	}
-
-	public void printQueue() {
-		for (int i = 0; i < 9; i++) {
-			com.jda.utility.Queue.Qnode<String> temp = queue.dequeue();
-			//System.out.println(temp.value);
-			System.out.println(temp.value);
-
-		}
-		System.out.println("----------------------------------------------");
-
-	}
-
 }
-

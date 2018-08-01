@@ -1,0 +1,15 @@
+{
+  "Customer" : [ {
+    "amount" : "200",
+    "mobileno" : "2",
+    "customerName" : "X"
+  }, {
+    "amount" : "100",
+    "mobileno" : "3",
+    "customerName" : "Y"
+  }, {
+    "amount" : "100",
+    "mobileno" : "5",
+    "customerName" : "Z"
+  } ]
+}

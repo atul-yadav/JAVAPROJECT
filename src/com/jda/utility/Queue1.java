@@ -44,4 +44,12 @@ public class Queue1<T extends Comparable<T>> {
 
 	}
 	
+	public boolean isEmpty() {
+		
+		if (front == rear)
+			return true;
+		else
+			return false;
+	}
+	
 }

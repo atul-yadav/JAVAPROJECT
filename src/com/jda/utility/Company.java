@@ -1,31 +1,47 @@
 package com.jda.utility;
 
-public class Company 
-{
-	private String company;
-	private long sharesAvailable;
-	private long pricePerShare;
+public class Company {
+	public int stockPrice;
+	private String stockName;
+	private int noofShares;
+	public Company(String stockName, int stockPrice, int noOfShares){
+		this.stockPrice = stockPrice;
+		this.stockName = stockName;
+		this.noofShares = noOfShares;
+	}
+	
+
+	public void setStockName(String stockName)
+	{
+		this.stockName = stockName;
+	}
+	public void setStockPrice(int stockPrice)
+	{
+		this.stockPrice = stockPrice;
+	}
+	public void setnoOfShares(int noOfShares)
+	{
+		this.noofShares = noOfShares;
+	}
+	public String getStockName()
+	{
+	
+		return stockName;
+	}
+	public int getStockPrice()
+	{
+		return stockPrice;
+	}
+	public int  getNoOfShares()
+	{
+		return noofShares;
+	}
+	
 	@Override
-	public String toString() {
-		return "\n\t\t\tCompany \n\t\t\t\tcompany : " + company + "\n\t\t\t\tsharesAvailable : " + sharesAvailable + "\n\t\t\t\tpricePerShare : "
-				+ pricePerShare +"\n";
+	public String toString(){
+		//return String.format(" + "\"No of Shares +" + quantity,name,price,quantity);
+		return "{" + "\"stockName\":\"" + stockName + ",\"" + "\"noOfShares\":\"" + noofShares + ",\"stockPrice\":\"" + stockPrice + "}";
 	}
-	public String getCompany() {
-		return company;
-	}
-	public void setCompany(String company) {
-		this.company = company;
-	}
-	public long getSharesAvailable() {
-		return sharesAvailable;
-	}
-	public void setSharesAvailable(long sharesAvailable) {
-		this.sharesAvailable = sharesAvailable;
-	}
-	public long getPricePerShare() {
-		return pricePerShare;
-	}
-	public void setPricePerShare(long pricePerShare) {
-		this.pricePerShare = pricePerShare;
-	}
+	
+
 }

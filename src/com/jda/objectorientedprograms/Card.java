@@ -1,32 +1,6 @@
 package com.jda.objectorientedprograms;
 
 public class Card {
-	int rank, suit;
-     String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
-	 String[] ranks = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13" };
-
-	Card(int suit, int rank) {
-		this.suit = suit;
-		this.rank = rank;
-
-	}
-	
-	@Override
-	
-	public String toString()
-	{
-		return suits[suit] + "-- "+ ranks[rank];
-		
-	}
-}
-
-
-
-
-
-
-/*
-public class Card {
 	String suit;
 	String rank;
 
@@ -42,7 +16,6 @@ public class Card {
 	public String getRank() {
 		return rank;
 	}
-}
 
 	
 	String getRank(int rankNumber) {
@@ -94,5 +67,3 @@ public class Card {
 		}
 	}
 }
-*/
-

@@ -6,7 +6,7 @@ import com.jda.utility.Company;
 
 public class MyLinkedList<T> {
 	Node<T> head;
-	public static Company company = new Company();
+	
 	public void add(T file) {
 		Node<T> n = new Node<T>(file);
 		

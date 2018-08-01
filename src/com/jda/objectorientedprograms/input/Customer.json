@@ -1,1 +1,7 @@
-[{"symbol":"TATA","amount":950,"shares":5}]
+[
+{
+"customerName": "Atul",
+"MobileNo" :"999999",
+"amount":100000
+}
+]

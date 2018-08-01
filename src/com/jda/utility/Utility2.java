@@ -1070,7 +1070,7 @@ public String getSuit(int suit) {
 		return "";
 	}
 }
-
+/*
 public long totalValuesOfShares(List<Company> company) {
 	long totalShares = 0;
 	for (Company c : company) {
@@ -1080,11 +1080,43 @@ public long totalValuesOfShares(List<Company> company) {
 	}
 	return totalShares;
 }
+*/
+
+public static String[] cardSort(String[] array) {
+	int n = array.length;
+	int[] sort = new int[n];
+	for(int i = 0; i<n; i++) {
+		char[] temp = array[i].toCharArray();
+		if(temp[0] == 'A')
+			sort[i] = 14;
+		else if(temp[0] == 'K')
+			sort[i] = 13;
+		else if(temp[0] == 'Q')
+			sort[i] = 12;
+		else if(temp[0] == 'J')
+			sort[i] = 11;
+		else if(temp[0] == '1')
+			sort[i] = 10;
+		else 
+			sort[i] = temp[0] - '0';	
+	}
+	for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (sort[j] > sort[j+1])
+            {
+                int temp = sort[j];
+                sort[j] = sort[j+1];
+                sort[j+1] = temp;
+                String s = array[j];
+                array[j] = array[j+1];
+                array[j+1] = s;
+            }
+        }
+        }
+	return array;
+}
 
 
-
-
-	
 }
 
 
